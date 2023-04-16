@@ -181,16 +181,18 @@ const DatePicker = ({
     })
   }, [])
 
-  React.useEffect(() => {
+  React.useEffect(function () {
     if (defaultValue) {
       if (defaultValue.getTime() < minDate.getTime()) {
-        setMonth(minDate.getMonth())
-        setSelectedDate(minDate)
+        setMonth(minDate.getMonth());
+        setYear(minDate.getFullYear());
+        setSelectedDate(minDate);
       } else {
-        setMonth(defaultValue.getMonth())
+        setMonth(defaultValue.getMonth());
+        setYear(defaultValue.getFullYear());
       }
     }
-  }, [])
+  }, []);
 
   React.useEffect(() => {
     setIsOpen(showCalendar)
